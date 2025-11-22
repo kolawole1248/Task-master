@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster Pro - Personal Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📝 TaskMaster Pro</h1>
+            <p>Organize your tasks efficiently</p>
+        </header>
+
+        <!-- Add Task Form -->
+        <div class="card">
+            <h2>Add New Task</h2>
+            <form id="taskForm" class="task-form">
+                <div class="form-group">
+                    <input type="text" id="taskTitle" placeholder="Task title" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="taskDescription" placeholder="Task description (optional)"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dueDate">Due Date:</label>
+                        <input type="date" id="dueDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority:</label>
+                        <select id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Add Task</button>
+            </form>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="card">
+            <div class="filter-section">
+                <input type="text" id="searchInput" placeholder="Search tasks..." class="search-input">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks List -->
+        <div class="card">
+            <h2>Your Tasks <span id="taskCount">(0 tasks)</span></h2>
+            <div id="tasksList" class="tasks-list">
+                <!-- Tasks will be dynamically inserted here -->
+            </div>
+            <div id="emptyState" class="empty-state">
+                <p>No tasks yet. Add your first task above!</p>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="card stats-card">
+            <h2>Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalTasks">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="completedTasks">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="pendingTasks">0</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
